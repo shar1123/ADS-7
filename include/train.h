@@ -8,7 +8,7 @@ class Train {
     bool light; // состояние лампочки
     Car *next;
     Car *prev;
-    Car(bool sost):light(sost), next(nullptr), prev(nullptr) {}
+    explicit Car(bool sost):light(sost), next(nullptr), prev(nullptr) {}
   };
   int countOp; // счетчик шагов (число переходов из вагона в вагон)
   Car *first; // точка входа в поезд (первый вагон)
