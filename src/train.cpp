@@ -28,6 +28,13 @@ void Train::addCar(bool light) {
   }
 }
 int Train::getLength() {
+  if (!first)
+    return 0;
+  Car* sb = first;
+  do {
+  sb->light = false;
+  sb = p->next;
+  } while (sb != first);
   Car* current = first;
   current->light = true;
   while (true) {
