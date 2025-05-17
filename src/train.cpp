@@ -42,7 +42,7 @@ int Train::getLength() {
   while (true) {
     ++i;
     first->light = !first->light;
-    Car* p = first;
+    const Car* p = first;
     for (int j = 0; j < n; ++j) {
       p = p->next;
       ++countOp;
