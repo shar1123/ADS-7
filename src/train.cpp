@@ -14,8 +14,8 @@ Train::~Train() {
   }
   delete first;
 }
-void Train::addCar(bool light) {
-  Car* newCar = new Car(light);
+void Train::addCar(bool) {
+  Car* newCar = new Car(false);
   if (!first) {
     first = newCar;
     first->next = first->prev = first;
