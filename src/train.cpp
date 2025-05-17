@@ -14,8 +14,8 @@ Train::~Train() {
   }
   delete first;
 }
-void Train::addCar(bool) {
-  Car* newCar = new Car(false);
+void Train::addCar(bool light) {
+  Car* newCar = new Car(light);
   if (!first) {
     first = newCar;
     first->next = first->prev = first;
@@ -30,21 +30,16 @@ void Train::addCar(bool) {
 int Train::getLength() {
   Car* current = first;
   current->light = true;
-  countOp++;
   while (true) {
     Car* temp = current->next;
-    int steps = 1;
     countOp++;
-    while (true) {
-      countOp++;
-      if (temp->light)
-        break;
+    int steps = 1;
+    while (!temp->light) {
       temp = temp->next;
       countOp++;
       steps++;
     }
     temp->light = false;
-    countOp++;
     for (int i = 0; i < steps; ++i) {
       temp = temp->prev;
       countOp++;
